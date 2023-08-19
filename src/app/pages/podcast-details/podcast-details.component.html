@@ -1,17 +1,18 @@
 <h2 class="title">Podcaster</h2>
 <hr />
-<!-- <div class="d-flex justify-content-end align-items-center">
-  <span class="badge text-bg-primary me-2">{{
-    (podcasts | filterPodcasts : param).length
-  }}</span>
-  <div>
-  </div>
-</div> -->
 <div class="row main">
   <aside class="col-4">
     <app-detail-card [podcast]="podcast"></app-detail-card>
   </aside>
   <section class="col-8">
-    <app-podcast-table></app-podcast-table>
+    <div class="card mb-2 shadow-sm">
+      <div class="card-body">
+        <h4 style="margin: 0">Episodes: {{ episodeList.length }}</h4>
+      </div>
+    </div>
+    <app-podcast-table
+      [podcastId]="podcastId"
+      [episodeList]="episodeList"
+    ></app-podcast-table>
   </section>
 </div>

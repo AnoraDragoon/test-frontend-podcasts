@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { PodcastService } from 'src/app/services/podcast.service';
 import { MOCK_PODCAST, Podcast } from 'src/app/model/podcast';
+import { Episode, MOCK_EPISODE } from 'src/app/model/episode';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class PodcastDetailsComponent implements OnInit {
 
     public podcastId: string | null = null;
     public podcast: Podcast | null = null;
+    episodeList: Episode[] = [];
+
 
     constructor(private podcastService: PodcastService, private route: ActivatedRoute) { }
 
@@ -31,8 +34,10 @@ export class PodcastDetailsComponent implements OnInit {
             .subscribe(data => {
                 if (data) {
                     this.podcast = { ...data, description: MOCK_PODCAST.description };
+                    for (let index = 0; index < 10; index++) {
+                        this.episodeList.push(MOCK_EPISODE);
+                    }
                 }
-                console.log(data);
             });
     }
 

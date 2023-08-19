@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Episode } from 'src/app/model/episode';
 
 @Component({
-  selector: 'app-podcast-table',
-  templateUrl: './podcast-table.component.html',
-  styleUrls: ['./podcast-table.component.css']
+    selector: 'app-podcast-table',
+    templateUrl: './podcast-table.component.html',
+    styleUrls: ['./podcast-table.component.css']
 })
-export class PodcastTableComponent implements OnInit {
+export class PodcastTableComponent {
 
-  constructor() { }
+    @Input() podcastId: string | null = '';
+    @Input() episodeList: Episode[] = [];
 
-  ngOnInit(): void {
-  }
+
+    constructor() { }
+
 
 }

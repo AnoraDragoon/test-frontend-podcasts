@@ -1,1 +1,24 @@
-<p>podcast-table works!</p>
+<div class="card shadow-sm">
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Date</th>
+          <th scope="col">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let episode of episodeList">
+          <td>
+            <a [routerLink]="['/podcast', podcastId, 'episode', episode.id]">
+              {{ episode.title }}
+            </a>
+          </td>
+          <td>{{ episode.date | date : "d/M/yyyy" }}</td>
+          <td>{{ episode.duration | intToTime }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
