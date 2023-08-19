@@ -1,1 +1,17 @@
-<p>podcast-details works!</p>
+<h2 class="title">Podcaster</h2>
+<hr />
+<!-- <div class="d-flex justify-content-end align-items-center">
+  <span class="badge text-bg-primary me-2">{{
+    (podcasts | filterPodcasts : param).length
+  }}</span>
+  <div>
+  </div>
+</div> -->
+<div class="row main">
+  <aside class="col-4">
+    <app-detail-card [podcast]="podcast"></app-detail-card>
+  </aside>
+  <section class="col-8">
+    <app-podcast-table></app-podcast-table>
+  </section>
+</div>

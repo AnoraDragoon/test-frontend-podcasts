@@ -16,7 +16,7 @@ const routes: Routes = [
         component: EpisodeDetailsComponent
     },
     {
-        path: 'podcast',
+        path: 'podcast/:podcastId',
         component: PodcastDetailsComponent
     },
     {

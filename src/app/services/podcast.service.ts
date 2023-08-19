@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Podcast } from '../model/podcast';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,10 +10,12 @@ import { Podcast } from '../model/podcast';
 })
 export class PodcastService {
 
+    private apiUrl = environment.apiURL;
+
     constructor(private http: HttpClient) { }
 
     load() {
-        return this.http.get<Podcast[]>('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')
+        return this.http.get<Podcast[]>(`${this.apiUrl}/us/rss/toppodcasts/limit=100/genre=1310/json`)
             .pipe(map(
                 (result: any) => result.feed.entry.map(
                     (item: any) => {
@@ -24,6 +27,29 @@ export class PodcastService {
                         }
                     }
                 )
+            ));
+    }
+
+    loadOne(id: string) {
+        return this.http.get(`https://api.allorigins.win/get?url=${encodeURIComponent('https://itunes.apple.com/lookup?id=' + id)}`)
+            .pipe(map(
+                (data: any) => {
+                    const json = JSON.parse(data.contents);
+                    const {
+                        collectionId: collectionId,
+                        collectionName: collectionName,
+                        artistName: artistName,
+                        artworkUrl600: artworkUrl600
+                    } = json.results[0];
+
+                    let result: Podcast = {
+                        id: collectionId,
+                        title: collectionName,
+                        authorName: artistName,
+                        img: artworkUrl600
+                    }
+                    return result;
+                }
             ));
     }
 }

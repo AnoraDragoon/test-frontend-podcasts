@@ -1,15 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { PodcastService } from 'src/app/services/podcast.service';
+import { MOCK_PODCAST, Podcast } from 'src/app/model/podcast';
+
 
 @Component({
-  selector: 'app-podcast-details',
-  templateUrl: './podcast-details.component.html',
-  styleUrls: ['./podcast-details.component.css']
+    selector: 'app-podcast-details',
+    templateUrl: './podcast-details.component.html',
+    styleUrls: ['./podcast-details.component.css']
 })
 export class PodcastDetailsComponent implements OnInit {
 
-  constructor() { }
+    public podcastId: string | null = null;
+    public podcast: Podcast | null = null;
 
-  ngOnInit(): void {
-  }
+    constructor(private podcastService: PodcastService, private route: ActivatedRoute) { }
+
+    ngOnInit(): void {
+        this.route.paramMap.pipe(
+            switchMap((params: ParamMap) => {
+                this.podcastId = params.get('podcastId');
+                if (this.podcastId) {
+                    return this.podcastService.loadOne(this.podcastId);
+                }
+                return of(null);
+            })
+        )
+            .subscribe(data => {
+                if (data) {
+                    this.podcast = { ...data, description: MOCK_PODCAST.description };
+                }
+                console.log(data);
+            });
+    }
 
 }

@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { FilterPodcastsPipe } from './pipes/filter-podcasts.pipe';
+import { DetailCardComponent } from './components/detail-card/detail-card.component';
+import { PodcastTableComponent } from './components/podcast-table/podcast-table.component';
 
 
 
@@ -23,7 +25,9 @@ import { FilterPodcastsPipe } from './pipes/filter-podcasts.pipe';
         EpisodeDetailsComponent,
         NotFoundComponent,
         PodcastCardComponent,
-        FilterPodcastsPipe
+        FilterPodcastsPipe,
+        DetailCardComponent,
+        PodcastTableComponent
     ],
     imports: [
         BrowserModule,
