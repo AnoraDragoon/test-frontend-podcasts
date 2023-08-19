@@ -1,7 +1,20 @@
 <h2 class="title">Podcaster</h2>
 <hr />
+<div class="d-flex justify-content-end align-items-center">
+  <span class="badge text-bg-primary me-2">{{
+    (podcasts | filterPodcasts : param).length
+  }}</span>
+  <div>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Filter podcasts..."
+      [(ngModel)]="param"
+    />
+  </div>
+</div>
 <section class="row main">
-  <div *ngFor="let item of podcasts" class="col-4">
+  <div *ngFor="let item of podcasts | filterPodcasts : param" class="col-4">
     <app-podcast-card [podcast]="item"></app-podcast-card>
   </div>
 </section>

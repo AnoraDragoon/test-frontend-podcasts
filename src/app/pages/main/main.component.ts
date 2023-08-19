@@ -10,6 +10,7 @@ import { PodcastService } from 'src/app/services/podcast.service';
 export class MainComponent implements OnInit {
 
     podcasts: Podcast[] = [];
+    param: string = '';
 
 
     constructor(private podcastService: PodcastService) { }
