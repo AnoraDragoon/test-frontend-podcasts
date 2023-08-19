@@ -12,7 +12,7 @@ const routes: Routes = [
         component: MainComponent
     },
     {
-        path: 'podcast/podcastId/episode/:episodeId',
+        path: 'podcast/:podcastId/episode/:episodeId',
         component: EpisodeDetailsComponent
     },
     {

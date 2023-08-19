@@ -11,9 +11,9 @@
     <p class="h6">{{ podcast?.title }}</p>
     <p class="card-text">by {{ podcast?.authorName }}</p>
     <hr />
-    <p class="card-text">
+    <div class="card-text">
       <span class="fw-bold">Description:</span><br />
-      {{ podcast?.description }}
-    </p>
+      <div [innerHTML]="podcast?.description"></div>
+    </div>
   </div>
 </div>

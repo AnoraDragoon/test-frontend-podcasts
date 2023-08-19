@@ -15,6 +15,7 @@ import { FilterPodcastsPipe } from './pipes/filter-podcasts.pipe';
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { PodcastTableComponent } from './components/podcast-table/podcast-table.component';
 import { IntToTimePipe } from './pipes/int-to-time.pipe';
+import { EpisodeCardComponent } from './components/episode-card/episode-card.component';
 
 
 
@@ -29,7 +30,8 @@ import { IntToTimePipe } from './pipes/int-to-time.pipe';
         FilterPodcastsPipe,
         DetailCardComponent,
         PodcastTableComponent,
-        IntToTimePipe
+        IntToTimePipe,
+        EpisodeCardComponent
     ],
     imports: [
         BrowserModule,
