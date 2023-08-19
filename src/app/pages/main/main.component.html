@@ -1,1 +1,7 @@
-<p>main works!</p>
+<h2 class="title">Podcaster</h2>
+<hr />
+<section class="row main">
+  <div *ngFor="let item of podcasts" class="col-4">
+    <app-podcast-card [podcast]="item"></app-podcast-card>
+  </div>
+</section>

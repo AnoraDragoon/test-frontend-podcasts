@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
     ngOnInit(): void {
         this.podcastService.load().subscribe((result) => {
             this.podcasts = result;
+            console.log(result);
         })
     }
 

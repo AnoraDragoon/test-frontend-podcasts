@@ -1,1 +1,13 @@
-<p>podcast-card works!</p>
+<div class="podcast-card">
+  <div class="card text-center shadow-sm">
+    <div class="card-body">
+      <img
+        class="rounded-circle"
+        [src]="podcast?.img"
+        alt="No image available"
+      />
+      <p class="h6">{{ podcast?.title | uppercase }}</p>
+      <p class="card-text">Author: {{ podcast?.authorName }}</p>
+    </div>
+  </div>
+</div>

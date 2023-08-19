@@ -20,11 +20,10 @@ export class PodcastService {
                             id: item.id.attributes['im:id'],
                             title: item.title.label,
                             authorName: item["im:artist"].label,
-                            img: item['im:image'][0].label
+                            img: item['im:image'][2].label
                         }
                     }
                 )
             ));
     }
-
 }

@@ -1,0 +1,15 @@
+.podcast-card {
+  padding-top: 6rem;
+}
+
+.card {
+  padding-top: 0;
+}
+
+.card>.card-body {
+  padding-top: 0 !important;
+}
+
+.card>.card-body>img {
+  margin-top: -5rem;
+}
