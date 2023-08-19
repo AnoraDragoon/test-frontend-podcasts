@@ -9,6 +9,7 @@ import { EpisodeDetailsComponent } from './pages/episode-details/episode-details
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PodcastCardComponent } from './components/podcast-card/podcast-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        NgbModule
     ],
     providers: [],
     bootstrap: [AppComponent]
