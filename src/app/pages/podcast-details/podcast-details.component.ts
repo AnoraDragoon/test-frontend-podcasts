@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { PodcastService } from 'src/app/services/podcast.service';
 import { MOCK_PODCAST, Podcast } from 'src/app/model/podcast';
 import { Episode, MOCK_EPISODE } from 'src/app/model/episode';
+import { LoadingService } from 'src/app/services/loading.service';
 
 
 @Component({
@@ -19,9 +20,10 @@ export class PodcastDetailsComponent implements OnInit {
     episodeList: Episode[] = [];
 
 
-    constructor(private podcastService: PodcastService, private route: ActivatedRoute) { }
+    constructor(private podcastService: PodcastService, private route: ActivatedRoute, private loadingService: LoadingService) { }
 
     ngOnInit(): void {
+        this.loadingService.activate();
         this.route.paramMap.pipe(
             switchMap((params: ParamMap) => {
                 this.podcastId = params.get('podcastId');
@@ -38,6 +40,10 @@ export class PodcastDetailsComponent implements OnInit {
                         this.episodeList.push(MOCK_EPISODE);
                     }
                 }
+                const loadingFinish = this.loadingService;
+                setTimeout(function () {
+                    loadingFinish.desactivate();
+                }, 1000);
             });
     }
 

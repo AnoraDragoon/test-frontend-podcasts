@@ -16,6 +16,7 @@ import { DetailCardComponent } from './components/detail-card/detail-card.compon
 import { PodcastTableComponent } from './components/podcast-table/podcast-table.component';
 import { IntToTimePipe } from './pipes/int-to-time.pipe';
 import { EpisodeCardComponent } from './components/episode-card/episode-card.component';
+import { LodingComponent } from './components/loding/loding.component';
 
 
 
@@ -31,7 +32,8 @@ import { EpisodeCardComponent } from './components/episode-card/episode-card.com
         DetailCardComponent,
         PodcastTableComponent,
         IntToTimePipe,
-        EpisodeCardComponent
+        EpisodeCardComponent,
+        LodingComponent
     ],
     imports: [
         BrowserModule,
